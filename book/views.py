@@ -1,7 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from . import models
 
-# Create your views here.
+
+def book_list_view(request):
+    if request.method == 'GET':
+        query_books = models.Book.objects.all().order_by('-id')
+        return render(request, 'book_list.html', {'book': query_books})
+    
+
+def book_detail_view(request, id):
+    if request.method == 'GET':
+        book_id = get_object_or_404(models.Book, id=id)
+        return render(request, 'book_detail.html', {'book_id': book_id})
+
+
 def message(request):   # решил оставить похожее сообщение
     return HttpResponse('Это мой второй проект на DJANGO')
 
@@ -26,3 +39,5 @@ def quote3(request):
             «Если главная цель в жизни не количество прожитых лет, а честь и достоинство, то какая разница, когда умирать?», 
             —  Джордж Оруэлл (Эрик Артур Блэр), автор «1984».
                         ''')
+
+# Create your views here.
