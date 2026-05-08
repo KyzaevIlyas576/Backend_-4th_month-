@@ -1,5 +1,5 @@
 <h1>Список компаний</h1>
-{% for company in companies %}
-    <h2>{{ company.name }}</h2>
-    <p>Средний рейтинг: {{ company.avg_rating }}</p>
+{% for i in companies %}
+    <h2>{{ i.name }}</h2>
+    <p>Средний рейтинг: {{ i.avg_rating }}</p>
 {% endfor %}

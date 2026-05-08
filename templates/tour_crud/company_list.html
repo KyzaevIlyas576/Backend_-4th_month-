@@ -1,0 +1,14 @@
+<h1>Компании</h1>
+
+<a href="/create_company/">Добавить компанию</a>
+
+<ul>
+    {% for i in companies %}
+
+    <li>
+        {{ i.name }}
+        <button><a href="/company_list/{{ i.id }}/update">Изменить</a></button>
+        <button><a href="/company_list/{{ i.id }}/delete">Удалить</a></button>
+    </li>
+    {% endfor %}
+</ul>
