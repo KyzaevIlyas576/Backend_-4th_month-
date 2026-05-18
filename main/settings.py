@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'book',
     'tour',
-    'tour_crud'
+    'tour_crud',
+    'users',
+    'captcha'
 ]
 
 MIDDLEWARE = [
